@@ -11,7 +11,7 @@ load_dotenv(dotenv_path)
 API_KEY = os.getenv('DIFY_API_KEY')
 
 def call_dify_workflow(query, user, conversation_id="", response_mode="streaming", files=[]):
-    url = 'https://api.hackathon.difyai.com/v1/chat-messages'
+    url = f"{os.getenv('DIFY_BASE_URL', 'https://api.dify.ai/v1')}/chat-messages"
     headers = {
         'Authorization': f'Bearer {API_KEY}',
         'Content-Type': 'application/json'
